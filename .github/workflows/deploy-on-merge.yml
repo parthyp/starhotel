@@ -27,4 +27,4 @@ jobs:
 
       - name: Git FTP push
         run: |
-          git ftp push --force --verbose --user ${{ secrets.FTP_USERNAME }} --passwd ${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
+          git ftp push --force --verbose 
