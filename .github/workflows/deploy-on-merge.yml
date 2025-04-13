@@ -18,13 +18,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y git-ftp
 
-      # - name: Authenticate with FTP
-      #   run: |
-          
-
-      - name: Git FTP push
+      # FTP credentials from GitHub secrets
+      - name: Set FTP credentials
+        env:
+          FTP_URL: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          git config git-ftp.password "$FTP_PASSWORD"
-          git config git-ftp.user "$FTP_USERNAME"
-          echo ${{secrets.FTP_USERNAME}} | sed 's/./& /g'
-          git ftp init -vv --user $FTP_USERNAME -p "$FTP_PASSWORD" "ftp://ftp.starhotelgrandcanyon.com" && git ftp push -f
+          git config --global credential.helper store
+          git ftp init --ftp-url=$FTP_SERVER --user=$FTP_USER --passwd=$FTP_PASSWORD
+
+      # Push changes to FTP server
+      - name: Push changes to FTP
+        run: git ftp push --ftp-url=$FTP_SERVER --user=$FTP_USER --passwd=$FTP_PASSWORD
