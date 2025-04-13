@@ -1,0 +1,23 @@
+name: Deploy to FTP on merge to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up git-ftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git-ftp
+
+      - name: Git FTP push
+        run: |
+          git ftp push -h
