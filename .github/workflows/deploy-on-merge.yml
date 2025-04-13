@@ -25,4 +25,5 @@ jobs:
       - name: Git FTP push
         run: |
           git config git-ftp.password "$FTP_PASSWORD"
+          git config git-ftp.user {{ secrets.FTP_USERNAME }}
           git ftp init -vv --user $FTP_USERNAME -p "$FTP_PASSWORD" "ftp://ftp.starhotelgrandcanyon.com" && git ftp push -f
