@@ -25,4 +25,4 @@ jobs:
       - name: Git FTP push
         run: |
           ls -la
-          echo $FTP_USERNAME
+          git config git-ftp.url "ftp://ftp.starhotelgrandcanyon.com"
