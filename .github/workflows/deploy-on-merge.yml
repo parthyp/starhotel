@@ -27,4 +27,5 @@ jobs:
           git config git-ftp.user $FTP_USERNAME
           git config git-ftp.url $FTP_SERVER
           git config git-ftp.password $FTP_PASSWORD
+          git ftp -h
           git ftp init
