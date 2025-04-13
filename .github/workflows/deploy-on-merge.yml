@@ -20,4 +20,4 @@ jobs:
 
       - name: Git FTP push
         run: |
-          git ftp push -h
+          git ftp push --force --user $FTP_USERNAME --passwd $FTP_PASSWORD $FTP_SERVER
