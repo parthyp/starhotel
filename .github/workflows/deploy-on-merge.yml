@@ -26,8 +26,8 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           git config --global credential.helper store
-          git ftp init --ftp-url=$FTP_SERVER --user=$FTP_USER --passwd=$FTP_PASSWORD
+          git ftp init --ftp-url=ftp.starhotelgrandcanyon.com --user=$FTP_USER --passwd=$FTP_PASSWORD
 
       # Push changes to FTP server
       - name: Push changes to FTP
-        run: git ftp push --ftp-url=$FTP_SERVER --user=$FTP_USER --passwd=$FTP_PASSWORD
+        run: git ftp push --ftp-url=ftp.starhotelgrandcanyon.com --user=$FTP_USER --passwd=$FTP_PASSWORD
