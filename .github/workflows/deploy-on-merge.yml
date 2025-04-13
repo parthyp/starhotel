@@ -7,7 +7,7 @@ on:
 
 jobs:
   ftp-deploy:
-    runs-on: debian-11  # Use the official Debian runner (Debian 11)
+    runs-on: ubuntu-latest  # Use the official Debian runner (Debian 11)
 
     steps:
       - name: Checkout repository
