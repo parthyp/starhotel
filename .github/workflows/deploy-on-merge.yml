@@ -21,10 +21,10 @@ jobs:
       - name: Authenticate with FTP
         run: |
           git config --global credential.helper store
-          echo "machine ${{ secrets.FTP_HOST }}" >> ~/.netrc
+          echo "machine ${{ secrets.FTP_SERVER }}" >> ~/.netrc
           echo "login ${{ secrets.FTP_USERNAME }}" >> ~/.netrc
           echo "password ${{ secrets.FTP_PASSWORD }}" >> ~/.netrc
 
       - name: Git FTP push
         run: |
-          git ftp push --force --user ${{ secrets.FTP_USERNAME }} --passwd ${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
+          git ftp push --force --verbose --user ${{ secrets.FTP_USERNAME }} --passwd ${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}
