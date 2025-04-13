@@ -27,5 +27,5 @@ jobs:
 
       - name: Git FTP push
         run: |
-          git ftp init --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://$FTP_HOST
-          git ftp push --force --verbose --user ${{ secrets.FTP_USERNAME }} --passwd ${{ secrets.FTP_PASSWORD }} ftp://starhotelgrancanyon.com
+          git ftp init --user $FTP_USERNAME --passwd $FTP_PASSWORD $FTP_SERVER
+          git ftp push --force --verbose --user $FTP_USERNAME --passwd $FTP_SERVER ftp://starhotelgrancanyon.com
