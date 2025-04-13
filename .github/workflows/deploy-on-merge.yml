@@ -27,7 +27,4 @@ jobs:
         run: |
           git config --global credential.helper store
           git ftp init -vv $FTP_SERVER --user=$FTP_USERNAME --passwd=$FTP_PASSWORD
-
-      # Push changes to FTP server
-      - name: Push changes to FTP
-        run: git ftp push -f $FTP_SERVER --user=$FTP_USERNAME --passwd=$FTP_PASSWORD
+          git ftp push -f $FTP_SERVER --user=$FTP_USERNAME --passwd=$FTP_PASSWORD
