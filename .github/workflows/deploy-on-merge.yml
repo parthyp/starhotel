@@ -7,7 +7,7 @@ on:
 
 jobs:
   ftp-deploy:
-    runs-on: ubuntu-latest
+    runs-on: debian-11  # Use the official Debian runner (Debian 11)
 
     steps:
       - name: Checkout repository
@@ -20,11 +20,11 @@ jobs:
 
       # - name: Authenticate with FTP
       #   run: |
-      #     git config --global credential.helper store
-      #     echo "machine ${{ secrets.FTP_SERVER }}" >> ~/.netrc
-      #     echo "login ${{ secrets.FTP_USERNAME }}" >> ~/.netrc
-      #     echo "password ${{ secrets.FTP_PASSWORD }}" >> ~/.netrc
+          
 
       - name: Git FTP push
         run: |
+          git config git-ftp.user $FTP_USERNAME
+          git config git-ftp.url $FTP_SERVER
+          git config git-ftp.password $FTP_PASSWORD
           git ftp push --force --user $FTP_USERNAME --passwd $FTP_PASSWORD $FTP_SERVER
