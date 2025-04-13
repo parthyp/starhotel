@@ -26,4 +26,4 @@ jobs:
         run: |
           git config git-ftp.url "ftp://ftp.starhotelgrandcanyon.com"
           git config git-ftp.password "$FTP_PASSWORD"
-          git ftp push --force --user $FTP_USERNAME --url "ftp://ftp.starhotelgrandcanyon.com"
+          git ftp push --force --user $FTP_USERNAME "ftp://ftp.starhotelgrandcanyon.com"
