@@ -18,6 +18,8 @@
   const setNav = (open) => {
     document.body.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    toggle.querySelector("use").setAttribute("href", open ? "#i-close" : "#i-menu");
   };
   toggle.addEventListener("click", () => setNav(!document.body.classList.contains("nav-open")));
   document.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => setNav(false)));
